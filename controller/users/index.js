@@ -3,15 +3,15 @@ const Users = require("../../model/user/users");
 const { hashPassword, comparePassword } = require("../../utils/bcrypt");
 // 创建用户
 const createUser = async ({ account, password }) => {
-  const { dataValues } = await commen.create(Users, {
-    account,
-    password: await hashPassword(password),
-  });
   // 查询是否存在该用户
   const res = await commen.findOne(Users, { account });
-  if (res.dataValues) {
+  if (res) {
     return;
   } else {
+    const { dataValues } = await commen.create(Users, {
+      account,
+      password: await hashPassword(password),
+    });
     return dataValues;
   }
 };

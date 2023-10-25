@@ -4,6 +4,8 @@ const router = require("koa-router")();
 // 用户注册
 const register = async (ctx, next) => {
   const res = await createUser({ ...ctx.request.body });
+
+  console.log(`res========>`, res);
   if (res) {
     ctx.success({
       code: 200,
