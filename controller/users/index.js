@@ -5,6 +5,7 @@ const { hashPassword, comparePassword } = require("../../utils/bcrypt");
 const createUser = async ({ account, password }) => {
   // 查询是否存在该用户
   const res = await commen.findOne(Users, { account });
+  //提交分支
   if (res) {
     return;
   } else {
