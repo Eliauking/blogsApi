@@ -5,7 +5,6 @@ const router = require("koa-router")();
 const register = async (ctx, next) => {
   const res = await createUser({ ...ctx.request.body });
 
-  console.log(`res========>`, res);
   if (res) {
     ctx.success({
       code: 200,
@@ -17,7 +16,7 @@ const register = async (ctx, next) => {
     });
   } else {
     ctx.error({
-      code: 201,
+      code: 400,
       success: false,
       message: "该用户已存在",
       data: {
@@ -30,6 +29,7 @@ const register = async (ctx, next) => {
 const login = async (ctx, next) => {
   const res = await loginUser({ ...ctx.request.body });
 
+  // console.log(ctx.num);
   if (res) {
     const token = generateToken(res);
     ctx.success({
@@ -43,7 +43,7 @@ const login = async (ctx, next) => {
     });
   } else {
     ctx.error({
-      code: 201,
+      code: 400,
       success: false,
       message: "请检查用户名或密码",
       data: {

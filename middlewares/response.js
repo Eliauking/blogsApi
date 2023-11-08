@@ -1,21 +1,23 @@
 module.exports = async (ctx, next) => {
   ctx.success = ({ data = "", message = "" }) => {
-    ctx.status = 200;
     ctx.body = {
       success: true,
-      code: 1,
+      code: 200,
       message,
       data,
     };
   };
+
   ctx.error = ({ error, code, data, message = "" }) => {
-    ctx.status = 201;
     ctx.body = {
+      success: false,
       error,
       code,
       message,
       data,
     };
   };
+
+  console.log(`ctx=========>`, ctx.status);
   await next();
 };
