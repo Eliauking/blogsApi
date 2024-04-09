@@ -18,7 +18,7 @@
     "koa-body": "^6.0.1",
     "koa-router": "^11.0.2",
     "koa2": "^2.0.0-alpha.7",
-    "mysql2": "^3.0.0",
+    "mysql2": "^2.3.3",
     "node-pre-gyp": "^0.17.0",
     "nodemon": "^3.0.1",
     "sequelize": "^6.33.0"
