@@ -3,7 +3,7 @@ let db = {};
 db = {
   database: 'blogs',
   user: 'root',
-  password: 'Ljl990907',
+  password: 'ljl990907',
   port: '3306',
   host: '122.51.53.84'
 };
